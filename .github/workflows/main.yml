@@ -1,0 +1,91 @@
+name: TDD Framework Selenium Tests - Daily 9 PM IST
+
+on:
+  schedule:
+    # Run daily at 9 PM IST (3:30 PM UTC)
+    - cron: '30 15 * * *'
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+  workflow_dispatch:
+
+jobs:
+  tdd-tests:
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        java-version: ['11', '17']
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Set up JDK ${{ matrix.java-version }}
+      uses: actions/setup-java@v4
+      with:
+        java-version: ${{ matrix.java-version }}
+        distribution: 'temurin'
+        cache: maven
+    
+    - name: Create required directories
+      run: mkdir -p ExecutionReports ScreenShots logs test-output
+    
+    - name: Build TDD Framework with Maven
+      run: mvn clean compile
+    
+    - name: Run TDD Selenium Tests with TestNG
+      run: mvn test -DsuiteXmlFile=testng.xml
+      continue-on-error: true
+    
+    - name: Wait for screenshots to be captured
+      if: always()
+      run: sleep 5
+    
+    - name: Upload Execution Reports
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: execution-reports-java-${{ matrix.java-version }}
+        path: ExecutionReports/
+        retention-days: 30
+    
+    - name: Upload Screenshots
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: screenshots-java-${{ matrix.java-version }}
+        path: ScreenShots/
+        retention-days: 30
+    
+    - name: Upload Test Logs
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: test-logs-java-${{ matrix.java-version }}
+        path: logs/
+        retention-days: 30
+    
+    - name: Publish Test Results
+      if: always()
+      uses: EnricoMi/publish-unit-test-result-action@v2
+      with:
+        files: target/surefire-reports/*.xml
+        check_name: TDD Test Results - Java ${{ matrix.java-version }}
+        comment_mode: always
+      continue-on-error: true
+    
+    - name: Test Execution Summary
+      if: always()
+      run: |
+        echo "===================================="
+        echo "TDD Framework Test Execution Complete"
+        echo "===================================="
+        echo "Timestamp: $(date)"
+        echo "Java Version: ${{ matrix.java-version }}"
+        echo "Artifacts:"
+        echo "  - Execution Reports: ExecutionReports/"
+        echo "  - Screenshots: ScreenShots/"
+        echo "  - Logs: logs/"
+        echo "===================================="
