@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="1" total="2" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2025-11-25T18:29:11 IST" name="Default suite" finished-at="2025-11-25T18:29:43 IST" duration-ms="31213">
+    <groups>
+    </groups>
+    <test started-at="2025-11-25T18:29:11 IST" name="Default test" finished-at="2025-11-25T18:29:43 IST" duration-ms="31213">
+      <class name="testClasses.LoginTest">
+        <test-method is-config="true" signature="setupGrid()[pri:0, instance:testClasses.LoginTest@f0da945]" started-at="2025-11-25T18:29:11 IST" name="setupGrid" finished-at="2025-11-25T18:29:11 IST" duration-ms="12" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setupGrid -->
+        <test-method is-config="true" signature="createFolder()[pri:0, instance:testClasses.LoginTest@f0da945]" started-at="2025-11-25T18:29:11 IST" name="createFolder" finished-at="2025-11-25T18:29:11 IST" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createFolder -->
+        <test-method is-config="true" signature="setup()[pri:0, instance:testClasses.LoginTest@f0da945]" started-at="2025-11-25T18:29:11 IST" name="setup" finished-at="2025-11-25T18:29:29 IST" duration-ms="17857" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="testValidLogin()[pri:0, instance:testClasses.LoginTest@f0da945]" started-at="2025-11-25T18:29:29 IST" name="testValidLogin" finished-at="2025-11-25T18:29:40 IST" duration-ms="11127" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testValidLogin -->
+        <test-method is-config="true" signature="teardown()[pri:0, instance:testClasses.LoginTest@f0da945]" started-at="2025-11-25T18:29:42 IST" name="teardown" finished-at="2025-11-25T18:29:43 IST" duration-ms="194" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+        <test-method is-config="true" signature="deleteCreatedFolder()[pri:0, instance:testClasses.LoginTest@f0da945]" started-at="2025-11-25T18:29:43 IST" name="deleteCreatedFolder" finished-at="2025-11-25T18:29:43 IST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- deleteCreatedFolder -->
+        <test-method is-config="true" signature="shutdownGridAfterSuite()[pri:0, instance:testClasses.LoginTest@f0da945]" started-at="2025-11-25T18:29:43 IST" name="shutdownGridAfterSuite" finished-at="2025-11-25T18:29:43 IST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- shutdownGridAfterSuite -->
+      </class> <!-- testClasses.LoginTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
