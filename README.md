@@ -29,7 +29,7 @@ This framework implements the Test-Driven Development (TDD) approach, where test
 ✅ **Page Object Model (POM)** - Structured test design pattern for maintainability  
 ✅ **Cross-Browser Testing** - Support for Chrome, Firefox, Edge, and Safari  
 ✅ **Parallel Test Execution** - Leverage TestNG for parallel execution  
-✅ **Comprehensive Reporting** - Extent Reports and TestNG HTML reports  
+✅ **Comprehensive Reporting** - ChainTest Reports and TestNG HTML reports  
 ✅ **Screenshot & Video Capture** - Automatic capture on test failures  
 ✅ **Configurable Test Data** - External configuration files for test scenarios  
 ✅ **Logging & Monitoring** - Detailed logs for debugging and monitoring  
@@ -143,7 +143,7 @@ mvn clean test -Dbrowser=firefox
 
 ## Report Generation
 
-### Extent Reports
+### ChainTest Reports
 Reports are automatically generated after test execution in:
 ```
 ExecutionReports/ExtentReports/
@@ -156,7 +156,7 @@ test-output/
 ```
 
 ### View Reports
-- Open `ExtentReports/index.html` in a web browser
+- Open `ExecutionReports/index.html` in a web browser
 - Check `test-output/index.html` for TestNG reports
 
 ## Best Practices
